@@ -111,6 +111,15 @@
 		.fact:nth-child(odd) { margin-right: 28px; }
 		.fact small { display: block; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; }
 		.fact strong { display: block; margin-top: 4px; font-size: 1.05rem; }
+		.toolkit { background: rgba(255, 255, 255, 0.38); }
+		.toolkit-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 90px; align-items: start; }
+		.toolkit-intro { max-width: 430px; color: var(--muted); font-size: 1.05rem; }
+		.skill-list { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+		.skill { padding: 18px 0; border-bottom: 1px solid var(--line); font-weight: 700; }
+		.skill:nth-child(odd) { margin-right: 28px; }
+		.skill small { display: block; margin-top: 3px; color: var(--muted); font-size: 0.72rem; font-weight: 400; }
+		.toolkit-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+		.toolkit-meta span { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 0.72rem; font-weight: 700; }
 		.services { border-top: 1px solid rgba(243, 245, 239, 0.2); }
 		.service { display: grid; grid-template-columns: 90px 1fr auto; gap: 25px; align-items: center; padding: 26px 0; border-bottom: 1px solid rgba(243, 245, 239, 0.2); }
 		.service-number { color: var(--coral); font-family: var(--serif); font-size: 1.7rem; }
@@ -148,6 +157,7 @@
 			.project-grid { grid-template-columns: 1fr; }
 			.project { min-height: 360px; }
 			.about-grid { gap: 20px; }
+			.toolkit-grid { grid-template-columns: 1fr; gap: 38px; }
 			.service { grid-template-columns: 42px 1fr 20px; gap: 12px; }
 			.service h3 { font-size: 1.15rem; }
 			.footer-row { flex-direction: column; }
@@ -162,6 +172,7 @@
 			<nav>
 				<a href="#work">Work</a>
 				<a href="#about">About</a>
+				<a href="#toolkit">Toolkit</a>
 				<a href="#services">Services</a>
 				<a class="nav-cta" href="mailto:hello@adithya.design">Let's talk</a>
 			</nav>
@@ -207,6 +218,25 @@
 					<p class="about-copy">The best digital work does not shout for attention. It <strong>earns it</strong> by being useful, surprising and unmistakably human.</p>
 					<p class="intro">My practice sits between design and development. I like asking the awkward questions early, finding the sharpest idea in the room, and carrying it all the way through to the details.</p>
 					<div class="facts"><div class="fact"><small>Based in</small><strong>Bengaluru, India</strong></div><div class="fact"><small>Available for</small><strong>Selected projects</strong></div><div class="fact"><small>Currently</small><strong>Making better tools</strong></div><div class="fact"><small>Say hello</small><strong>hello@adithya.design</strong></div></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="toolkit" id="toolkit">
+			<div class="wrap toolkit-grid">
+				<div>
+					<div class="eyebrow">The technical side</div>
+					<h2 style="margin-top: 20px;">Built for<br><em>real life.</em></h2>
+					<p class="toolkit-intro">I care about the part after the presentation: accessible interfaces, thoughtful systems and code that remains pleasant to work with.</p>
+					<div class="toolkit-meta"><span>Responsive by default</span><span>Accessible by design</span><span>Performance minded</span></div>
+				</div>
+				<div class="skill-list" aria-label="Technical skills">
+					<div class="skill">HTML &amp; CSS<small>Semantic layouts and design systems</small></div>
+					<div class="skill">JavaScript<small>Interactive, reliable experiences</small></div>
+					<div class="skill">React<small>Reusable product interfaces</small></div>
+					<div class="skill">Figma<small>Prototypes and visual systems</small></div>
+					<div class="skill">Git &amp; GitHub<small>Clear, collaborative workflows</small></div>
+					<div class="skill">Web performance<small>Fast, focused and measurable</small></div>
 				</div>
 			</div>
 		</section>
