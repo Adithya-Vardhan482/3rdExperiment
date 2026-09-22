@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Adithya's portfolio - product designer and creative developer.">
+	<title>Adithya | Product Designer & Developer</title>
+	<style>
+		:root {
+			--ink: #13221f;
+			--muted: #60716d;
+			--paper: #f3f5ef;
+			--lime: #d9f36a;
+			--coral: #ff8068;
+			--line: rgba(19, 34, 31, 0.16);
+			--serif: Georgia, "Times New Roman", serif;
+			--sans: "Trebuchet MS", "Segoe UI", sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: var(--sans);
+			line-height: 1.5;
+		}
+		a { color: inherit; text-decoration: none; }
+		img { display: block; width: 100%; }
+		.wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+		header {
+			position: absolute;
+			z-index: 5;
+			top: 0;
+			width: 100%;
+			padding: 28px 0;
+		}
+		.nav { display: flex; align-items: center; justify-content: space-between; }
+		.logo { font-weight: 800; letter-spacing: -0.06em; font-size: 1.3rem; }
+		.logo span { color: var(--coral); }
+		nav { display: flex; align-items: center; gap: 30px; font-size: 0.87rem; font-weight: 700; }
+		nav a { opacity: 0.72; transition: opacity 180ms ease; }
+		nav a:hover { opacity: 1; }
+		.nav-cta, .button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 12px 19px;
+			border: 1px solid var(--ink);
+			border-radius: 999px;
+			font-weight: 700;
+			transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+		}
+		.nav-cta:hover, .button:hover { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--ink); }
+		.menu-button { display: none; border: 0; background: transparent; font-size: 1.5rem; cursor: pointer; }
+
+		.hero { min-height: 720px; padding: 170px 0 92px; position: relative; overflow: hidden; }
+		.hero:before {
+			content: ""; position: absolute; width: 410px; height: 410px; right: -120px; top: 80px;
+			border-radius: 50%; background: var(--lime); opacity: 0.72;
+		}
+		.hero-grid { display: grid; grid-template-columns: 1.03fr 0.97fr; gap: 76px; align-items: center; position: relative; }
+		.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--coral); text-transform: uppercase; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.16em; }
+		.eyebrow:before { content: ""; width: 34px; height: 2px; background: currentColor; }
+		h1 { max-width: 700px; margin: 20px 0 24px; font-family: var(--serif); font-size: clamp(3.7rem, 8vw, 7.4rem); line-height: 0.9; letter-spacing: -0.07em; font-weight: 500; }
+		h1 em { color: var(--coral); font-style: italic; }
+		.intro { max-width: 470px; color: var(--muted); font-size: 1.07rem; }
+		.hero-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+		.button.primary { background: var(--ink); color: var(--paper); }
+		.button.secondary { border-color: transparent; padding-left: 4px; }
+		.button.secondary:hover { box-shadow: none; transform: translateX(4px); }
+		.hero-art { position: relative; min-height: 480px; }
+		.hero-photo { height: 440px; object-fit: cover; border-radius: 48% 48% 8px 8px; filter: saturate(0.8); }
+		.stamp { position: absolute; right: -22px; bottom: 8px; display: grid; place-items: center; width: 144px; height: 144px; border-radius: 50%; background: var(--coral); text-align: center; text-transform: uppercase; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; transform: rotate(12deg); }
+		.stamp strong { display: block; font-family: var(--serif); font-size: 2rem; line-height: 0.8; letter-spacing: -0.05em; }
+		.scroll-note { position: absolute; bottom: 38px; left: 0; display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; }
+		.scroll-note span { display: block; width: 42px; height: 1px; background: var(--muted); }
+
+		section { padding: 110px 0; }
+		.dark { color: var(--paper); background: var(--ink); }
+		.section-heading { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 52px; }
+		h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5rem); line-height: 0.95; letter-spacing: -0.06em; font-weight: 500; }
+		.section-heading p { max-width: 290px; color: var(--muted); margin: 0; }
+		.dark .section-heading p { color: #a4b4ae; }
+		.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+		.project { position: relative; overflow: hidden; min-height: 430px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 6px; background-size: cover; background-position: center; }
+		.project:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(19, 34, 31, 0.06), rgba(19, 34, 31, 0.78)); }
+		.project > * { position: relative; z-index: 1; }
+		.project:nth-child(1) { background-image: url("https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"); }
+		.project:nth-child(2) { background-image: url("https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=85"); }
+		.project:nth-child(3) { background-image: url("https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=1200&q=85"); }
+		.project:nth-child(4) { background-image: url("https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"); }
+		.project-tag { width: fit-content; padding: 7px 12px; border-radius: 99px; color: var(--ink); background: var(--lime); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+		.project h3 { margin: 0 0 5px; font-family: var(--serif); font-size: 2rem; font-weight: 500; letter-spacing: -0.04em; }
+		.project p { max-width: 310px; margin: 0; color: #d4ded9; font-size: 0.9rem; }
+		.project-link { display: inline-flex; margin-top: 18px; color: var(--lime); font-size: 0.82rem; font-weight: 800; }
+
+		.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 110px; align-items: start; }
+		.about-copy { font-size: clamp(1.4rem, 2.4vw, 2.1rem); line-height: 1.22; letter-spacing: -0.04em; }
+		.about-copy strong { color: var(--coral); font-weight: 500; }
+		.facts { margin-top: 38px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+		.fact { padding: 20px 0; border-bottom: 1px solid var(--line); }
+		.fact:nth-child(odd) { margin-right: 28px; }
+		.fact small { display: block; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; }
+		.fact strong { display: block; margin-top: 4px; font-size: 1.05rem; }
+		.services { border-top: 1px solid rgba(243, 245, 239, 0.2); }
+		.service { display: grid; grid-template-columns: 90px 1fr auto; gap: 25px; align-items: center; padding: 26px 0; border-bottom: 1px solid rgba(243, 245, 239, 0.2); }
+		.service-number { color: var(--coral); font-family: var(--serif); font-size: 1.7rem; }
+		.service h3 { margin: 0; font-size: 1.4rem; font-weight: 500; }
+		.service p { margin: 4px 0 0; color: #a4b4ae; font-size: 0.88rem; }
+		.service-arrow { color: var(--lime); font-size: 1.8rem; }
+
+		.contact { position: relative; overflow: hidden; background: var(--coral); }
+		.contact:after { content: ""; position: absolute; right: 8%; top: -140px; width: 350px; height: 350px; border: 1px solid rgba(19, 34, 31, 0.3); border-radius: 50%; box-shadow: 0 0 0 25px rgba(19, 34, 31, 0.08), 0 0 0 50px rgba(19, 34, 31, 0.06); }
+		.contact-content { position: relative; z-index: 1; max-width: 730px; }
+		.contact h2 { font-size: clamp(3.4rem, 7vw, 7rem); }
+		.contact .button { margin-top: 34px; background: var(--ink); color: var(--paper); border-color: var(--ink); }
+		footer { padding: 28px 0; color: #a4b4ae; background: var(--ink); font-size: 0.8rem; }
+		.footer-row { display: flex; justify-content: space-between; gap: 20px; }
+		.socials { display: flex; gap: 22px; }
+		.socials a:hover { color: var(--lime); }
+
+		@media (max-width: 760px) {
+			.wrap { width: min(100% - 32px, 580px); }
+			header { padding: 20px 0; }
+			.menu-button { display: block; }
+			nav { position: absolute; top: 68px; left: 0; right: 0; display: none; padding: 18px 20px; flex-direction: column; align-items: stretch; gap: 18px; background: var(--ink); color: var(--paper); border-radius: 5px; }
+			nav.open { display: flex; }
+			.nav-cta { text-align: center; border-color: var(--lime); color: var(--lime); }
+			.hero { min-height: auto; padding: 125px 0 90px; }
+			.hero-grid, .about-grid { grid-template-columns: 1fr; gap: 48px; }
+			.hero-art { min-height: 380px; }
+			.hero-photo { height: 350px; }
+			.stamp { right: 0; width: 112px; height: 112px; }
+			.stamp strong { font-size: 1.6rem; }
+			.scroll-note { display: none; }
+			section { padding: 78px 0; }
+			.section-heading { display: block; margin-bottom: 32px; }
+			.section-heading p { margin-top: 20px; }
+			.project-grid { grid-template-columns: 1fr; }
+			.project { min-height: 360px; }
+			.about-grid { gap: 20px; }
+			.service { grid-template-columns: 42px 1fr 20px; gap: 12px; }
+			.service h3 { font-size: 1.15rem; }
+			.footer-row { flex-direction: column; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="wrap nav">
+			<a class="logo" href="#top">adithya<span>.</span></a>
+			<button class="menu-button" aria-label="Open menu" aria-expanded="false">+</button>
+			<nav>
+				<a href="#work">Work</a>
+				<a href="#about">About</a>
+				<a href="#services">Services</a>
+				<a class="nav-cta" href="mailto:hello@adithya.design">Let's talk</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<div class="wrap hero-grid">
+				<div>
+					<div class="eyebrow">Independent creative</div>
+					<h1>Ideas made <em>useful.</em></h1>
+					<p class="intro">I am Adithya, a product designer and developer turning complex problems into clear, considered digital experiences.</p>
+					<div class="hero-actions">
+						<a class="button primary" href="#work">See my work</a>
+						<a class="button secondary" href="#about">More about me &rarr;</a>
+					</div>
+				</div>
+				<div class="hero-art">
+					<img class="hero-photo" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85" alt="Team collaborating around a table">
+					<div class="stamp"><span><strong>10+</strong> years<br>making things</span></div>
+				</div>
+			</div>
+			<div class="wrap scroll-note"><span></span> Scroll to explore</div>
+		</section>
+
+		<section class="dark" id="work">
+			<div class="wrap">
+				<div class="section-heading"><h2>Selected<br>work.</h2><p>A few projects where strategy, design and technology met at exactly the right moment.</p></div>
+				<div class="project-grid">
+					<article class="project"><span class="project-tag">Brand + digital</span><div><h3>Atelier North</h3><p>A warmer digital home for an architecture studio with a quietly radical point of view.</p><a class="project-link" href="mailto:hello@adithya.design?subject=Atelier%20North">View project &rarr;</a></div></article>
+					<article class="project"><span class="project-tag">Product design</span><div><h3>Common Ground</h3><p>Making local food discovery feel personal, useful and worth coming back to.</p><a class="project-link" href="mailto:hello@adithya.design?subject=Common%20Ground">View project &rarr;</a></div></article>
+					<article class="project"><span class="project-tag">Web experience</span><div><h3>Inkwell</h3><p>A thoughtful publishing platform for people who still believe in the long read.</p><a class="project-link" href="mailto:hello@adithya.design?subject=Inkwell">View project &rarr;</a></div></article>
+					<article class="project"><span class="project-tag">Creative direction</span><div><h3>Monument Valley</h3><p>Identity and launch campaign for a new kind of travel journal.</p><a class="project-link" href="mailto:hello@adithya.design?subject=Monument%20Valley">View project &rarr;</a></div></article>
+				</div>
+			</div>
+		</section>
+
+		<section id="about">
+			<div class="wrap about-grid">
+				<div><div class="eyebrow">A little context</div><h2 style="margin-top: 20px;">Good work<br>feels <em>obvious.</em></h2></div>
+				<div>
+					<p class="about-copy">The best digital work does not shout for attention. It <strong>earns it</strong> by being useful, surprising and unmistakably human.</p>
+					<p class="intro">My practice sits between design and development. I like asking the awkward questions early, finding the sharpest idea in the room, and carrying it all the way through to the details.</p>
+					<div class="facts"><div class="fact"><small>Based in</small><strong>Bengaluru, India</strong></div><div class="fact"><small>Available for</small><strong>Selected projects</strong></div><div class="fact"><small>Currently</small><strong>Making better tools</strong></div><div class="fact"><small>Say hello</small><strong>hello@adithya.design</strong></div></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="dark" id="services">
+			<div class="wrap">
+				<div class="section-heading"><h2>What I<br>bring.</h2><p>From the first question to the final pixel, I help teams make confident decisions.</p></div>
+				<div class="services">
+					<div class="service"><span class="service-number">01</span><div><h3>Product strategy</h3><p>Finding the focus, audience and opportunity before we make anything.</p></div><span class="service-arrow">&nearr;</span></div>
+					<div class="service"><span class="service-number">02</span><div><h3>Brand identity</h3><p>Building a visual language with enough character to be remembered.</p></div><span class="service-arrow">&nearr;</span></div>
+					<div class="service"><span class="service-number">03</span><div><h3>Interface design</h3><p>Crafting flexible, accessible systems that make good experiences repeatable.</p></div><span class="service-arrow">&nearr;</span></div>
+					<div class="service"><span class="service-number">04</span><div><h3>Creative development</h3><p>Turning thoughtful design into fast, expressive and reliable things on the web.</p></div><span class="service-arrow">&nearr;</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact" id="contact">
+			<div class="wrap contact-content"><div class="eyebrow">Have a good one?</div><h2>Let's make<br>something <em>matter.</em></h2><a class="button" href="mailto:hello@adithya.design">Start a conversation &rarr;</a></div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap footer-row"><span>&copy; <span id="year"></span> Adithya. Made with intent.</span><div class="socials"><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a><a href="mailto:hello@adithya.design">Email</a></div></div>
+	</footer>
+	<script>
+		const menuButton = document.querySelector('.menu-button');
+		const navigation = document.querySelector('nav');
+		menuButton.addEventListener('click', () => {
+			const isOpen = navigation.classList.toggle('open');
+			menuButton.setAttribute('aria-expanded', isOpen);
+			menuButton.textContent = isOpen ? 'x' : '+';
+		});
+		navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+			navigation.classList.remove('open');
+			menuButton.setAttribute('aria-expanded', 'false');
+			menuButton.textContent = '+';
+		}));
+		document.querySelector('#year').textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
