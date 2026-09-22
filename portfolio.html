@@ -9,7 +9,7 @@
 		:root {
 			--ink: #13221f;
 			--muted: #60716d;
-			--paper: #f3f5ef;
+			--paper: #edf2f0;
 			--lime: #d9f36a;
 			--coral: #ff8068;
 			--line: rgba(19, 34, 31, 0.16);
@@ -22,7 +22,13 @@
 		body {
 			margin: 0;
 			color: var(--ink);
-			background: var(--paper);
+			background-color: var(--paper);
+			background-image:
+				linear-gradient(rgba(19, 34, 31, 0.055) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(19, 34, 31, 0.055) 1px, transparent 1px),
+				radial-gradient(circle at 82% 8%, rgba(217, 243, 106, 0.34), transparent 24rem),
+				radial-gradient(circle at 8% 72%, rgba(255, 128, 104, 0.12), transparent 26rem);
+			background-size: 32px 32px, 32px 32px, auto, auto;
 			font-family: var(--sans);
 			line-height: 1.5;
 		}
